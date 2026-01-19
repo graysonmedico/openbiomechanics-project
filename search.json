@@ -1,9 +1,30 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the Lab",
+    "section": "",
+    "text": "This project analyzes biomechanics data from the OpenBiomechanics Project, an open-source initiative by Driveline Baseball.\nThe data is captured in their motion capture lab using high-speed cameras and reflective markers placed on the athlete’s body. This allows for sub-millimeter accuracy in tracking joint centers and skeletal movement.\n\n\nBelow is a video directly from the Driveline lab showing how the capture system works:"
+  },
+  {
+    "objectID": "index.html#how-the-data-is-captured",
+    "href": "index.html#how-the-data-is-captured",
+    "title": "Welcome to the Lab",
+    "section": "",
+    "text": "This project analyzes biomechanics data from the OpenBiomechanics Project, an open-source initiative by Driveline Baseball.\nThe data is captured in their motion capture lab using high-speed cameras and reflective markers placed on the athlete’s body. This allows for sub-millimeter accuracy in tracking joint centers and skeletal movement.\n\n\nBelow is a video directly from the Driveline lab showing how the capture system works:"
+  },
+  {
+    "objectID": "index.html#about-this-site",
+    "href": "index.html#about-this-site",
+    "title": "Welcome to the Lab",
+    "section": "About This Site",
+    "text": "About This Site\nI built this site to correlate body kinematics (how they move) with pitch metrics (how the ball flies).\nNavigate to the analysis tabs to see: * Hip-Shoulder Separation: Does stretching the core lead to more velocity? * Arm Stress: Which mechanics put the most torque on the elbow?"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About The Project",
     "section": "",
-    "text": "make sure they work!\nLink to the GitHub Repository to THIS website\nWasserberger KW, Brady AC, Besky DM, Jones BR, Boddy KJ. The OpenBiomechanics Project: The open source initiative for anonymized, elite-level athletic motion capture data. (2022).\nLink to the openbiomechanics GitHub Repository"
+    "text": "Reason i built this site\nmake sure they work!\nLink to the GitHub Repository to THIS website\nWasserberger KW, Brady AC, Besky DM, Jones BR, Boddy KJ. The OpenBiomechanics Project: The open source initiative for anonymized, elite-level athletic motion capture data. (2022).\nLink to the openbiomechanics GitHub Repository"
   }
 ]
