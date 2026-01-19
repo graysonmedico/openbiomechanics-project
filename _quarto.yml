@@ -9,13 +9,16 @@ website:
         text: Home
       - about.qmd
 
+  page-footer:
+    background: "#2E5A38"  # Outfield Green
+    foreground: "#FDFBF7"  # Cream Text (for readability)
+    center: "Grayson Medico | [Link to Data Source](https://github.com/drivelineresearch/openbiomechanics/tree/main)"
+
 format:
   html:
     theme:
-      - cosmo
-      - brand
-    css: styles.css
+      - cosmo  # or any base theme you like
+      - custom.scss
     toc: true
-
 
 
