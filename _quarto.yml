@@ -12,8 +12,10 @@ website:
         menu:
           - text: "Stride Fallacy"
             href: analysis.qmd
-          - text: "Depth"
+          - text: "Slot Efficencey"
             href: analysis2.qmd
+          - text: "Balance"
+            href: analysis3.qmd
 
       - href: about.qmd
         text: About This Project
@@ -21,7 +23,7 @@ website:
   page-footer:
     background: "#2E5A38"  # Outfield Green
     foreground: "#FDFBF7"  # Cream Text (for readability)
-    center: "Grayson Medico | [Link to Data Source](https://github.com/drivelineresearch/openbiomechanics/tree/main)"
+    center: "Grayson Medico | [Link to Data Source](https://github.com/drivelineresearch/openbiomechanics/tree/main/baseball_pitching/data)"
 
 format:
   html:

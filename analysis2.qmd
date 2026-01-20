@@ -6,8 +6,7 @@ execute:
 ---
 
 
-```{r}
-# | message: false
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
 library(ggplot2)
 library(ggpubr)
@@ -16,16 +15,21 @@ library(plotly)
 # 1. LOAD DATA
 df <- read_csv("data/pitcher_profiles.csv")
 
-# 2. CREATE THE SCIENTIFIC METRIC (Torque Efficiency)
-# We calculate: How many Newton-meters of stress per 1 MPH of velocity?
+# 2. CREATE METRIC & FILTER
 df$torque_efficiency <- df$elbow_varus_moment / df$pitch_speed_mph
-
-# 3. FILTER
 plot_data <- df[!is.na(df$arm_slot) & !is.na(df$torque_efficiency), ]
 
-# 4. CALCULATE CORRELATION
+# 3. CREATE THE LABEL
 cor_val <- cor(plot_data$arm_slot, plot_data$torque_efficiency)
-r_label <- paste("R =", round(cor_val, 2)) 
+label_text <- paste("R =", round(cor_val, 2)) 
+
+# 4. PREPARE LABEL POSITION (Top Left Corner)
+# We create a tiny dataframe just for the text. This forces Plotly to draw it.
+text_data <- data.frame(
+  x = min(plot_data$arm_slot), 
+  y = max(plot_data$torque_efficiency), 
+  label = label_text
+)
 
 # 5. PLOT
 eff_plot <- ggplot(plot_data, aes(x = arm_slot, y = torque_efficiency)) + 
@@ -38,21 +42,16 @@ eff_plot <- ggplot(plot_data, aes(x = arm_slot, y = torque_efficiency)) +
                               "<br>Raw Velo:", round(pitch_speed_mph, 1), "mph")), 
              alpha = 0.7, size = 3) +
   
-  # Color Scale: Red (Inefficient/High Cost) -> Blue (Efficient/Low Cost)
   scale_color_gradient(low = "blue", high = "red", name = "Stress Cost") +
-  
-  # Trend Line
   geom_smooth(method = "lm", color = "black", se = TRUE) +
   
-  # Clean R Label
-  annotate("text", 
-           x = min(plot_data$arm_slot), 
-           y = max(plot_data$torque_efficiency), 
-           label = r_label, 
-           hjust = 0, vjust = 1, size = 5, fontface = "plain") + 
+  # --- THE FIX: Using geom_text instead of annotate ---
+  geom_text(data = text_data, aes(x = x, y = y, label = label),
+            color = "black", size = 6, hjust = 0, vjust = 1, fontface = "bold") +
+  # ----------------------------------------------------
   
   labs(
-    title = "Myth #5 (Refined): Does Arm Slot Affect Efficiency?",
+    title = "Myth #5: Does Arm Slot Affect Efficiency?",
     subtitle = "Relationship between Arm Slot and Torque Cost per MPH",
     x = "Arm Slot (Degrees)",
     y = "Torque Efficiency (Nm per MPH)"
@@ -60,7 +59,7 @@ eff_plot <- ggplot(plot_data, aes(x = arm_slot, y = torque_efficiency)) +
   
   theme_minimal()
 
-# 6. INTERACTIVE
+# 6. DISPLAY
 ggplotly(eff_plot, tooltip = "text")
 ```
 
