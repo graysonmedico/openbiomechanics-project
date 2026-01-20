@@ -1,0 +1,67 @@
+---
+title: "Slot Efficency"
+format: html
+execute:
+    echco: false
+---
+
+
+```{r}
+# | message: false
+library(readr)
+library(ggplot2)
+library(ggpubr)
+library(plotly)
+
+# 1. LOAD DATA
+df <- read_csv("data/pitcher_profiles.csv")
+
+# 2. CREATE THE SCIENTIFIC METRIC (Torque Efficiency)
+# We calculate: How many Newton-meters of stress per 1 MPH of velocity?
+df$torque_efficiency <- df$elbow_varus_moment / df$pitch_speed_mph
+
+# 3. FILTER
+plot_data <- df[!is.na(df$arm_slot) & !is.na(df$torque_efficiency), ]
+
+# 4. CALCULATE CORRELATION
+cor_val <- cor(plot_data$arm_slot, plot_data$torque_efficiency)
+r_label <- paste("R =", round(cor_val, 2)) 
+
+# 5. PLOT
+eff_plot <- ggplot(plot_data, aes(x = arm_slot, y = torque_efficiency)) + 
+  
+  # Scatter Points
+  geom_point(aes(color = torque_efficiency, 
+                 text = paste("Pitcher:", user,
+                              "<br>Arm Slot:", round(arm_slot, 1), "deg",
+                              "<br>Efficiency:", round(torque_efficiency, 2), "Nm/mph",
+                              "<br>Raw Velo:", round(pitch_speed_mph, 1), "mph")), 
+             alpha = 0.7, size = 3) +
+  
+  # Color Scale: Red (Inefficient/High Cost) -> Blue (Efficient/Low Cost)
+  scale_color_gradient(low = "blue", high = "red", name = "Stress Cost") +
+  
+  # Trend Line
+  geom_smooth(method = "lm", color = "black", se = TRUE) +
+  
+  # Clean R Label
+  annotate("text", 
+           x = min(plot_data$arm_slot), 
+           y = max(plot_data$torque_efficiency), 
+           label = r_label, 
+           hjust = 0, vjust = 1, size = 5, fontface = "plain") + 
+  
+  labs(
+    title = "Myth #5 (Refined): Does Arm Slot Affect Efficiency?",
+    subtitle = "Relationship between Arm Slot and Torque Cost per MPH",
+    x = "Arm Slot (Degrees)",
+    y = "Torque Efficiency (Nm per MPH)"
+  ) +
+  
+  theme_minimal()
+
+# 6. INTERACTIVE
+ggplotly(eff_plot, tooltip = "text")
+```
+
+show a picture of one pitcher and then the circle that shows different slots

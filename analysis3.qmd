@@ -1,0 +1,58 @@
+---
+title: "You Must Balance"
+format: html
+---
+
+
+```{r}
+library(readr)
+library(ggplot2)
+library(ggpubr)
+library(plotly)
+
+# 1. LOAD & FILTER
+df <- read_csv("data/pitcher_profiles.csv")
+plot_data <- df[!is.na(df$cog_velo_pkh) & !is.na(df$pitch_speed_mph), ]
+
+# 2. CALCULATE CORRELATION MANUALLY
+# This prevents the "weird symbols" error in the interactive plot
+cor_val <- cor(plot_data$cog_velo_pkh, plot_data$pitch_speed_mph)
+r_label <- paste("R =", round(cor_val, 2)) # Creates the text "R = 0.18"
+
+# 3. CREATE PLOT
+balance_plot <- ggplot(plot_data, aes(x = cog_velo_pkh, y = pitch_speed_mph)) + 
+  
+  # Scatter Points
+  geom_point(aes(color = cog_velo_pkh, 
+                 text = paste("Pitcher:", user, 
+                              "<br>Session:", session,
+                              "<br>Pitch Speed:", pitch_speed_mph, "mph",
+                              "<br>Drift Speed:", round(cog_velo_pkh, 2), "m/s")), 
+             alpha = 0.7, size = 3) +
+  
+  scale_color_gradient(low = "red", high = "green", name = "Drift Speed") +
+  geom_smooth(method = "lm", color = "black", se = TRUE) +
+  
+  # --- THE FIX IS HERE ---
+  # We use annotate() instead of stat_cor(). 
+  # This puts plain text on the graph that Plotly can read easily.
+  annotate("text", 
+           x = min(plot_data$cog_velo_pkh), 
+           y = max(plot_data$pitch_speed_mph), 
+           label = r_label, 
+           hjust = 0, vjust = 1, size = 5, fontface = "plain") + 
+  # -----------------------
+
+  labs(
+    title = "Do You Need a 'Balance Point'?",
+    subtitle = "Relationship between Forward Momentum at Peak Leg Lift and Velocity",
+    x = "COG Velocity at Peak Knee Height (m/s)",
+    y = "Pitch Velocity (mph)"
+  ) +
+  
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray") +
+  theme_minimal()
+
+# 4. INTERACTIVE
+ggplotly(balance_plot, tooltip = "text")
+```

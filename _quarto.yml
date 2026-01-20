@@ -12,6 +12,8 @@ website:
         menu:
           - text: "Stride Fallacy"
             href: analysis.qmd
+          - text: "Depth"
+            href: analysis2.qmd
 
       - href: about.qmd
         text: About This Project
