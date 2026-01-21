@@ -1,15 +1,15 @@
 ---
-title: "About The Project"
+title: "My name is Grayson Medico. "
 ---
-
-My name is Grayson Medico, a 2nd year @ New College of Florida
+I am a student @ New College of Florida 28' and play Baseball.
 
 ```{r}
 #| echo: false
-#| fig.cap: "J. E. Manzi et al., 2022, Journal of Sports Sciences, 40(3)"
-#| out.width: "80%"
+#| fig.cap: "Grayson (Red Tie), with Victor (brother)"
+#| out.width: "45%"
+#| fig.align: "center"
 
-knitr::include_graphics("stridelength.jpg")
+knitr::include_graphics("photo.JPEG")
 ```
 
 ```{r}
@@ -85,10 +85,37 @@ cat(css_style)
 # FIX: Use as.character() and cat() to ensure clean HTML output
 cat(as.character(buttons_html))
 ```
+<br>
+
+## Bridging the Gap Between "Feel" and "Real"
+<br>
+Baseball has always been filled with traditional wisdom—cues and mechanics that have been passed down for decades. But as a player, I often found myself asking: Is this actually true? Or is it just what we’ve always been told?
+
+I created this project to find those answers.
+
+## The Mission
+<br>
+My goal was to take high-level, open-source biomechanics data and make it accessible. I wanted to move beyond the guesswork and see the actual correlations that drive velocity, health, and efficiency on the mound.
+
+**As a Player:** I wanted to make more informed decisions about my own training, understanding how my body moves and how to optimize it for peak performance.
+
+**As a Coach:** I wanted to ensure that the advice I give isn’t just repetition, but rooted in fact. This project allows me to help other athletes develop faster and safer.
 
 
-[Link to the GitHub Repository to THIS website](https://github.com/graysonmedico/openbiomechanics-review)
 
-*Wasserberger KW, Brady AC, Besky DM, Jones BR, Boddy KJ. The OpenBiomechanics Project: The open source initiative for anonymized, elite-level athletic motion capture data. (2022).*
+
+
+## Powered by Open Data
+<br>
+This analysis utilizes data from the OpenBiomechanics Project, a revolutionary open-source initiative that provides high-fidelity motion capture data to the public. By leveraging this resource, we can democratize access to elite-level sports science, proving that you don't need a million-dollar lab to learn the truth about the game.
+<br>
+
+# Link to Data and Githubs
+<br>
 
 [Link to the openbiomechanics GitHub Repository](https://github.com/drivelineresearch/openbiomechanics/tree/main)
+*Wasserberger KW, Brady AC, Besky DM, Jones BR, Boddy KJ. The OpenBiomechanics Project: The open source initiative for anonymized, elite-level athletic motion capture data. (2022).*
+<br>
+<br>
+
+[Link to the GitHub Repository to THIS website](https://github.com/graysonmedico/openbiomechanics-review)

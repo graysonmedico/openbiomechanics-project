@@ -1,15 +1,30 @@
 ---
-title: "Welcome to the Lab"
+title: "Testing Common Pitching Philosophy's"
 format: html
 ---
+<br>
+<br>
 
-# Testing Common Pitching Philosophy's
+**The LONGER you stride the HARDER you throw** - Stride Fallacy link them
+<br>
+<br>
 
-The LONGER you stride the HARDER you throw - Stride Fallacy link them
-Slot - Slot Efficency
-Push Off - Push Off
-Rotate your hips fast to throw harder - The Hips Do Lie
-The HARDER you throw the MORE stress on the elbow - Elbow Torque
+**Slot** - Slot Efficiency
+<br>
+<br>
+
+**Push Off** - Push Off
+<br>
+<br>
+
+**Rotate your hips fast to throw harder** - The Hips Do Lie
+<br>
+<br>
+
+**The HARDER you throw the MORE stress on the elbow** - Elbow Torque
+<br>
+<br>
+<br>
 
 ## How the Data is Captured
 

@@ -12,7 +12,7 @@ website:
         menu:
           - text: "Stride Fallacy"
             href: analysis.qmd
-          - text: "Slot Efficencey"
+          - text: "Slot Efficiency"
             href: analysis2.qmd
           - text: "Push Off"
             href: analysis3.qmd

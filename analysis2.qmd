@@ -1,5 +1,5 @@
 ---
-title: "Slot Efficency"
+title: "Slot Efficiency"
 format: html
 execute:
     echco: false
