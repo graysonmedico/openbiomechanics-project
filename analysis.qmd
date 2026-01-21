@@ -10,6 +10,7 @@ execute:
 ### The Hypothesis
 **Conventional baseball wisdom suggests that:**
 The farther you stride the harder you will throw. Is that true?
+<br>
 
 ```{r}
 #| echo: false
@@ -55,8 +56,37 @@ p <- ggplot(df, aes(x = stride_length, y = pitch_speed_mph)) +
 # 4. Make it Interactive
 ggplotly(p, tooltip = "text")
 ```
+<br>
 
-# Parameters of Research
+# The Analysis
+
+*This chart tests that theory by comparing Stride Length directly against Pitch Velocity.*
+
+The Variables
+X-Axis: Stride Length (% of Height)
+
+What it is: The distance from the pitching rubber to where the lead foot lands at ground contact.
+
+How it is measured: In biomechanics, this is often tracked as a percentage of the pitcher's body height (e.g., a 6'0" pitcher striding 6 feet has a 100% stride length).
+
+The Norm: Most MLB pitchers stride between 80% and 105% of their body height.
+
+Y-Axis: Pitch Velocity (mph)
+
+What it is: The maximum speed of the ball at release.
+
+**The Theory:** If the "longer stride" myth is true, we should see a clear upward line—pitchers who stride farther should consistently throw harder.
+
+## How to Read This Graph
+The "Goldilocks" Zone: You will likely notice that the hardest throwers don't always have the longest strides. They sit in a middle range that allows their hips to rotate fully.
+
+The "Over-Striders": Look for dots on the far right (extreme stride length) that might have lower velocity. When a pitcher strides too far, their hips can get "locked out," preventing them from rotating quickly and killing their power.
+
+The "Short-Striders": Dots on the far left represent pitchers who cut their delivery short. While this can limit energy generation, some elite short-closers use this effectively for deception.
+
+# The Takeaway
+Stride Length is an Output, Not an Input. The data suggests that stride length is personal to the athlete's hip mobility and strength. Forcing a pitcher to stride farther than their body allows can actually decrease velocity by disrupting their timing. The goal isn't "maximum distance"—it's "optimal distance" to allow the pelvis to rotate powerfully.
+## Parameters of Research
 <br>
 Stride length is calculated from the rubber to the back of the front foot. It is shown as a percent of the athletes height. (0.7 = 70% of height)
 

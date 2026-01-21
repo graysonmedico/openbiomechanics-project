@@ -2,7 +2,12 @@
 title: "The Hips Do Lie"
 format: html
 ---
+<br>
 
+## **"You need to rotate your hips faster to throw hard!"**
+*Is this true?*
+<br>
+<br>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
@@ -77,3 +82,38 @@ engine_plot <- ggplot(plot_data, aes(x = rear_grf_mag_max, y = pitch_speed_mph))
 # 6. DISPLAY
 ggplotly(engine_plot, tooltip = "text")
 ```
+<br>
+
+## The Analysis
+
+This chart puts that theory to the test by correlating Peak Pelvis Rotational Velocity directly against Pitch Velocity.
+
+### The Variables
+X-Axis: Pelvis Rotational Velocity (deg/s)
+
+What it is: This measures the peak speed at which a pitcher's pelvis rotates (spins) open towards home plate.
+
+The Unit: It is measured in degrees per second (deg/s). To give you a benchmark:
+
+Average High School: ~600-700 deg/s
+
+Elite/Pro: ~700-900+ deg/s
+
+Y-Axis: Pitch Velocity (mph)
+
+What it is: The speed of the baseball at release.
+
+**Why we compare them:** If the "speed theory" were 100% true, we would see a perfect diagonal line—every pitcher with fast hips would throw hard, and every pitcher with slow hips would throw soft.
+
+## How to Read This Graph
+The Scatter: You will likely see a "cloud" of data rather than a strict line. This indicates that while hip speed can help, it is not the sole driver of velocity.
+
+The "Slow Hips / High Velo" Group: Look for dots on the left side of the graph (lower hip speed) that are high up on the Y-axis (high velocity). These athletes are the "efficiency masters." They don't rely on violent rotation; instead, they rely on sequencing and leverage to transfer energy.
+
+The "Fast Hips / Low Velo" Group: Look for dots on the far right (super fast hips) that are low on velocity. These pitchers are spinning incredibly fast but "leaking" that energy before it reaches the ball.
+
+# The Takeaway
+Speed is useless without Sequence. The data challenges the idea that raw rotational speed is the ultimate goal. A pitcher can spin their hips at 1000 deg/s, but if that rotation happens too early or too late (poor timing), the energy is wasted. Velocity comes from how you transfer that energy, not just how fast you generate it.
+
+<br>
+<br>

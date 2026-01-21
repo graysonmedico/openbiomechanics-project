@@ -5,15 +5,21 @@ format: html
 <br>
 <br>
 
+```{r}
+#| echo: false
+#| fig.cap: "Biomechanical Footage of an Athlete"
+#| out.width: 40%"
+#| fig.align: "center"
+
+knitr::include_graphics("bioskeleton.gif")
+```
+<br>
+
 **The LONGER you stride the HARDER you throw** - Stride Fallacy link them
 <br>
 <br>
 
 **Slot** - Slot Efficiency
-<br>
-<br>
-
-**Push Off** - Push Off
 <br>
 <br>
 
@@ -37,3 +43,10 @@ Below is a video directly from the Driveline lab showing how the capture system 
 
 {{< video https://www.youtube.com/watch?v=8jWZ0q8_0B0 >}}
 
+
+## Examining this Data Set
+<br>
+100 pitchers from highschool, college, and professional baseball. Ranging from **70 mph** to **94 mph**
+
+<br>
+<br>

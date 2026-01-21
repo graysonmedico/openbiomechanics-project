@@ -1,10 +1,13 @@
 ---
-title: "Slot Efficiency"
+title: "The Analysis: Does Arm Slot Affect Health?"
 format: html
 execute:
     echco: false
 ---
 
+<br>
+"Dropping your arm slot saves your elbow." This chart investigates one of the most common debates in pitching: Does throwing "over the top" create more stress than throwing "sidearm"?
+<br>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
@@ -51,7 +54,7 @@ eff_plot <- ggplot(plot_data, aes(x = arm_slot, y = torque_efficiency)) +
   # ----------------------------------------------------
   
   labs(
-    title = "Myth #5: Does Arm Slot Affect Efficiency?",
+    title = "Does Arm Slot Affect Efficiency?",
     subtitle = "Relationship between Arm Slot and Torque Cost per MPH",
     x = "Arm Slot (Degrees)",
     y = "Torque Efficiency (Nm per MPH)"
@@ -62,5 +65,34 @@ eff_plot <- ggplot(plot_data, aes(x = arm_slot, y = torque_efficiency)) +
 # 6. DISPLAY
 ggplotly(eff_plot, tooltip = "text")
 ```
+<br>
 
-show a picture of one pitcher and then the circle that shows different slots
+ By analyzing the relationship between arm angle and torque efficiency, we can see if one style of throwing is inherently safer than another.
+
+### The Variables
+X-Axis: Arm Slot (Degrees)
+
+What it is: The angle of the forearm relative to the ground at release.
+
+**How to read it:**
+
+Lower numbers (< 30°): Sidearm or Low-3/4 slot.
+
+Higher numbers (> 50°): Over-the-top or High-3/4 slot.
+
+Y-Axis: Torque Efficiency (Nm per MPH)
+
+What it is: This is a "fairness" metric. Instead of looking at raw stress, we look at Stress Cost per MPH. It answers: "How much torque does this pitcher 'pay' to generate 1 MPH of velocity?"
+
+**Why we use it:** A pitcher throwing 95 mph will naturally have more raw torque than someone throwing 80 mph. By dividing torque by velocity, we can compare the mechanical efficiency of different arm slots on a level playing field.
+
+### How to Read This Graph
+The Flat Line (R ≈ 0): You will notice the trend line is almost perfectly horizontal (R = 0.02). This is a critical finding. It indicates zero correlation between arm slot and stress efficiency.
+
+The Scatter: Notice that the red dots (High Stress/Low Efficiency) and blue dots (Low Stress/High Efficiency) are scattered evenly across the graph. You can find "efficient" pitchers at a low arm slot and at a high arm slot.
+
+# The Takeaway
+Your arm slot does not determine your injury risk. The data suggests that changing a pitcher's arm slot simply to "reduce stress" is likely ineffective. A sidearmer pays the same "tax" on their elbow as an over-the-top thrower. Stress is determined by velocity and timing (how the hips and trunk sequence), not by the height of the hand at release.
+
+<br>
+<br>
